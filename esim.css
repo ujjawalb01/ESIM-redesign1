@@ -1,4 +1,4 @@
- :root {
+:root {
       --primary: #1e3993;
       --secondary: #01c3c9;
       --cta: #fb5353;
@@ -470,6 +470,15 @@
   display: flex;
   flex-direction: column;
   gap: 29px;
+}
+
+.platform-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .platform-item h4 {
