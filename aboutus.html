@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us | ESIM Campus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    :root {
+      --primary: #1e3993;
+      --secondary: #01c3c9;
+      --cta: #fb5353;
+      --gray: #f3f5fa;
+      --dark: #222c3e;
+      --light: #ffffff;
+    }
+    body { background: #f9fbff; font-family: 'Inter', Arial, sans-serif; margin:0; color: #222c3e;}
+    a {text-decoration: none;color: inherit;}
+    /* HEADER */
+    .header-wrap { background: var(--light); border-bottom:1px solid #e4e8ef; padding:0;width:100%;}
+    .header-inner {
+      max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;
+      padding:15px 20px 0 20px;position:relative;flex-wrap:wrap;
+    }
+    .header-left {display:flex;align-items:center;gap:26px;flex-wrap:wrap;min-width:0;}
+    .logo {font-size:2.1rem;color:#1e3993;font-weight:700;letter-spacing:.01em;line-height:1;margin-right:8px;white-space:nowrap;min-width:0;}
+    .nav-links {display:flex;align-items:center;gap:20px;font-size:1.15rem;font-weight:400;min-width:0;flex-wrap:wrap;}
+    .nav-links a {color:#222c3e;border-radius:7px;padding:7px 10px;text-align:center;min-width:0;transition:background .14s;}
+    .nav-links .active, .nav-links a.active {background: #eef2fa; color: #1e3993 !important; font-weight: 600;}
+    .cta-btn {
+      background: #01c3c9;color:#fff;border:none;padding:13px 38px;border-radius:10px;
+      font-weight:700;font-size:1.15rem;cursor:pointer;margin-left:28px;margin-bottom:6px;
+      box-shadow:none;transition:background 0.2s;display:block;text-align:center;white-space:nowrap;
+    }
+    .cta-btn:hover, .cta-btn:focus {background:#1e3993;color:#fff;}
+    @media (max-width:900px) {
+      .header-inner{flex-direction:column;align-items:stretch;padding-bottom:12px;}
+      .header-left{flex-direction:column;align-items:flex-start;gap:0;width:100%;}
+      .nav-links{gap:8px;margin-top:6px;}
+      .cta-btn{margin-left:0;margin-top:10px;width:100%;}
+      .logo{margin-bottom:4px;}
+    }
+    @media (max-width:500px){
+      .logo{font-size:1.2rem;}
+      .header-inner{padding:9px 4vw 4px 4vw;}
+      .nav-links{font-size:0.96em;}
+      .cta-btn{font-size:1rem;}
+      .header-left{width:100%;}
+      .nav-links a{padding:7px 6px;}
+    }
+
+    /* SECTION LAYOUTS */
+    .info-section, .features-section, .awards-section {
+      display:flex;align-items:stretch;max-width:1100px;margin:38px auto 0 auto;background:var(--light);
+      border-radius:18px;box-shadow:0 2px 16px rgba(30,57,147,.07);border:1.4px solid #ebf1fa;overflow:hidden;gap:0;
+    }
+    .content-block, .features-block, .awards-list-block {
+      flex:1 1 510px;padding:38px 34px 38px 40px;min-width:210px;box-sizing:border-box;background:var(--light);
+      display:flex;flex-direction:column;justify-content:center;
+    }
+    .content-block h1 {
+      color:var(--primary);font-size:2.25rem;font-weight:700;margin:0 0 24px 0;letter-spacing:.01em;line-height:1.17;
+    }
+    .content-block p {font-size:1.13rem;margin-bottom:18px;}
+    .img-area, .features-img-area, .awards-img-area {
+      flex:1 1 400px;min-width:240px;background:#eef4ff;border-left:1.4px solid #ebf1fa;
+      display:flex;align-items:center;justify-content:center;
+      position:relative;
+    }
+    .img-area img, .features-img-area img {
+      width:95%;max-width:430px;max-height:420px;border-radius:20px;box-shadow:0 6px 32px rgba(30,57,147,0.08);
+      object-fit:cover;margin:34px 0;background:#e6efff;display:block;
+    }
+    .features-section {margin-top:0;position:relative;top:34px;}
+    .features-block {padding:38px 34px 38px 48px;}
+    .features-section .features-block {border-radius:0 0 0 18px;}
+    .features-section .features-img-area {border-radius:0 0 18px 0;}
+    .features-list, .features-block ul {
+      margin-top:16px; margin-bottom:16px; padding-left:18px; color: #1e3993; font-size:1.08rem;
+    }
+    .features-block ul {list-style: disc;}
+    .features-list{list-style:none; padding-left:0;}
+    .features-list li{margin-bottom:7px;}
+    @media (min-width: 900px) {
+      .features-section {margin-left:50px; max-width:1030px;box-shadow:0 2px 14px rgba(30,57,147,.05), 0 12px 44px rgba(30,57,147,.04);}
+    }
+    @media (min-width: 1100px) {
+      .features-section {margin-left:70px;}
+    }
+    @media (max-width:1000px){
+      .info-section, .features-section, .awards-section{flex-direction:column;max-width:97vw;}
+      .img-area,.features-img-area,.awards-img-area{border-left:none;border-top:1.4px solid #ebf1fa;border-radius:0 0 18px 18px;min-height:180px;}
+      .img-area img, .features-img-area img, .awards-img-area img{margin:18px auto;}
+      .features-section{top:0;margin-left:0;}
+    }
+    @media (max-width:650px){
+      .content-block, .features-block, .awards-list-block{padding:16px;}
+      .content-block h1{font-size:1.28rem;}
+      .content-block p, .features-block ul, .features-list{font-size:0.98rem;}
+      .img-area img, .features-img-area img, .awards-img-area img{max-height:150px;width:97%;}
+    }
+
+    /* AWARDS SECTION - IMAGE FIX */
+    .awards-section {margin-top:46px;}
+    .awards-list-block h2 {color:var(--primary);font-size:1.5rem;margin-bottom:20px;font-weight:700;}
+    .awards-list {
+      display:flex;flex-direction:column;gap:13px;list-style-type:none;padding-left:0;
+    }
+    .awards-list li {
+      background: white; padding: 13px 18px; border-radius:8px; box-shadow:0 2px 6px rgba(30,57,147,0.06);
+      font-weight:600;color:var(--dark);font-size:1rem;
+    }
+    .awards-img-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eef4ff;
+      border-left: 1.4px solid #ebf1fa;
+      border-radius: 0 18px 18px 0;
+      overflow: hidden;
+      padding: 24px;
+    }
+    .awards-img-area img {
+      max-width: 100%;
+      max-height: 360px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 6px 32px rgba(30,57,147,0.08);
+      margin: 0 auto;
+    }
+    @media (max-width: 1000px) {
+      .awards-img-area {
+        border-left: none;
+        border-top: 1.4px solid #ebf1fa;
+        border-radius: 0 0 18px 18px;
+        padding: 16px;
+        min-height: 220px;
+      }
+      .awards-img-area img {
+        max-height: 200px;
+      }
+    }
+
+    /* CLIENT/CUSTOMER LOGOS */
+    .clients-section {
+      max-width: 1200px;
+      margin: 60px auto 0 auto;
+      padding: 30px 10px 0 10px;
+    }
+    .clients-title {
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 28px;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: .01em;
+    }
+    .clients-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      justify-content: center;
+      align-items: stretch;
+    }
+    .client-card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 3px 14px rgba(30,57,147,0.09);
+      padding: 22px 18px 14px 18px;
+      width: 220px;
+      min-width: 180px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: box-shadow 0.32s;
+    }
+    .client-card:hover {box-shadow: 0 8px 22px rgba(30,57,147,0.16);}
+    .client-img {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      border-radius: 50%;
+      margin-bottom: 13px;
+      background: #e6ebf5;
+      display: block;
+    }
+    .client-name {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.02rem;
+      margin-bottom: 0;
+    }
+    @media (max-width:700px) {
+      .clients-flex {flex-direction:column;align-items:center;}
+      .client-card {width:95%;}
+    }
+
+    /* FOOTER */
+    footer{background:#1b2252;color:#d6e7fa;padding:35px 10px 18px 10px;}
+    .footer-container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;max-width:1200px;margin:0 auto;}
+    .footer-col{flex:1 1 200px;min-width:180px;margin-bottom:20px;}
+    .footer-col h4{margin-bottom:10px;color:var(--secondary);font-weight:700;}
+    .footer-col ul{list-style:none;padding:0;font-size:0.95rem;color:#c8d5f5;}
+    .footer-col ul li{margin-bottom:8px;}
+    .footer-col ul li a{color:inherit;text-decoration:underline;transition:color 0.3s;}
+    .footer-col ul li a:hover{color:var(--light);}
+    .newsletter{display:flex;flex-direction:column;gap:10px;}
+    .newsletter input[type="email"]{padding:8px;border-radius:5px;border:none;font-size:1rem;}
+    .newsletter button{padding:8px;background:var(--secondary);color:white;border:none;border-radius:5px;font-weight:600;cursor:pointer;font-size:1rem;transition:background 0.3s;}
+    .newsletter button:hover{background:var(--primary);}
+    @media (max-width:700px){.footer-container{flex-direction:column;gap:18px;}}
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <div class="header-wrap">
+    <div class="header-inner">
+      <div class="header-left">
+        <div class="logo">ESIM CAMPUS</div>
+        <nav class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html" class="active">About Us</a>
+          <a href="#">Services</a>
+          <a href="#">Who We Serve</a>
+          <a href="#">Resources</a>
+          <a href="#">Contact</a>
+        </nav>
+      </div>
+      <button class="cta-btn">Get Started</button>
+    </div>
+  </div>
+
+  <!-- FIRST SECTION -->
+  <section class="info-section">
+    <div class="content-block">
+      <h1>KNOW ABOUT ESIM CAMPUS SOLUTION</h1>
+      <p>
+        <strong>ESIM Campus Solution</strong> is a proprietary product of MKT Softwares, a company specialized in Enterprise Solutions in various domains. ESIM Campus Solution comes in with tremendous experience in the field of offering customized solutions to address the entire Student life cycle Management for a University / Institute. ESIM Campus Solution is an attempt to facilitate smooth management of Institute affairs.
+      </p>
+    </div>
+    <div class="img-area">
+      <img src="agirl.jpg" alt="Student with folders" />
+    </div>
+  </section>
+
+  <!-- SECOND SECTION -->
+  <section class="features-section info-section">
+    <div class="features-block content-block">
+      <p>
+        This user-friendly Institute management software has been developed after an in-depth analysis of the requirements of Institute and in close coordination with the educationists of distinction, thereby proposing to increase the efficiency of the entire system. Its primary purpose is to provide mechanisms for automated processing and tracking of student information for an educational institution.
+      </p>
+      <ul>
+        <li>K-12 institutions</li>
+        <li>Graduate &amp; professional institution</li>
+        <li>Higher education</li>
+        <li>Proprietary Institutions</li>
+      </ul>
+      <ul class="features-list">
+        <li>Bring Students, Teachers, Parents and Staff on Mobile App for effective communication and convenience.</li>
+        <li>An App which could make life of all the stakeholders very easy and productive.</li>
+        <li>Your Own Branded App dashboard. All important things on fingertip.</li>
+        <li>&gt;&gt; Push notifications for all the updates</li>
+        <li>Online-Offline App Working</li>
+      </ul>
+    </div>
+    <div class="features-img-area img-area">
+      <img src="another.jpg" alt="Campus App and Dashboard" />
+    </div>
+  </section>
+
+  <!-- AWARDS SECTION -->
+  <section class="awards-section info-section" style="margin-top:46px;">
+    <div class="awards-list-block">
+      <h2>Awards & Recognitions</h2>
+      <ul class="awards-list">
+        <li>Awarded Agile 100 IT company in INDIA by IDG Inc in 2015.</li>
+        <li>Rated as top 10 ERP and BI product for Higher Education in India by Silicon India.</li>
+        <li>Awarded Premier 100 IT company in INDIA by IDG Inc in 2014.</li>
+        <li>Winner of TIE UP Excellence Award for Young Entrepreneur of the year 2013-2014.</li>
+        <li>Awarded Runner up in best Start UP In Enterprise Software Category by CRN Media.</li>
+        <li>Awarded as one of the fast growing IT Company In INDIA by IDG Channel world.</li>
+        <li>Nominated in India mart-ET leaders of Tomorrow award category</li>
+      </ul>
+    </div>
+    <div class="awards-img-area img-area">
+      <img src="award.png" alt="Company Awards" />
+    </div>
+  </section>
+
+  <!-- CLIENT/INSTITUTES SECTION -->
+  <section class="clients-section">
+    <div class="clients-title">We Can't Achieve Success without Our Clients</div>
+    <div class="clients-flex">
+      <div class="client-card">
+        <img class="client-img" src="ish.jpg" alt="Indian School of Hospitality" />
+        <div class="client-name">INDIAN SCHOOL OF HOSPITALITY</div>
+      </div>
+      <div class="client-card">
+        <img class="client-img" src="jai.png" alt="Jaipuria Institute of Management"/>
+        <div class="client-name">JAIPURIA INSTITUTE OF MANAGEMENT</div>
+      </div>
+      <div class="client-card">
+        <img class="client-img" src="ramee.jpg" alt="Ram-Eesh Group of Institutions"/>
+        <div class="client-name">RAM-EESH GROUP OF INSTITUTIONS</div>
+      </div>
+      <div class="client-card">
+        <img class="client-img" src="ipem.avif" alt="IPEM Group of Institutions"/>
+        <div class="client-name">IPEM GROUP OF INSTITUTIONS</div>
+      </div>
+      <div class="client-card">
+        <img class="client-img" src="lbs.webp" alt="Lal Bahadur Shastri Institute"/>
+        <div class="client-name">LAL BAHADUR SHASTRI INSTITUTE OF MANAGEMENT & DEVELOPMENT STUDIES</div>
+      </div>
+      <div class="client-card">
+        <img class="client-img" src="ghs.png" alt="GHS-IMR"/>
+        <div class="client-name">GHS-IMR</div>
+      </div>
+      <!--  -->
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container container">
+      <div class="footer-col">
+        <h4>Contact Us</h4>
+        <ul>
+          <li>605 STPI, A-1/4 UPSIDC, Lakhanpur, Kanpur, U.P. 208024 INDIA</li>
+          <li>C-201 Noida One IT Park, Tower-C, Sector-62, Noida-201309 UP, INDIA</li>
+          <li>Email: <a href="mailto:contact@mktsoftwares.com">contact@mktsoftwares.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <form class="newsletter">
+          <input type="email" placeholder="Your email address" required />
+          <button type="submit">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    <div style="text-align:center; padding-top:12px;">&copy; 2016 - MKT SOFTWARES | ALL RIGHTS RESERVED</div>
+  </footer>
+</body>
+</html>
