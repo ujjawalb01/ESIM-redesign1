@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Campus Solutions | ESIM Campus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+    :root {
+      --primary: #1e3993;
+      --secondary: #01c3c9;
+      --cta: #fb5353;
+      --gray: #f3f5fa;
+      --gray-light: #f9fbff;
+      --dark: #222c3e;
+      --light: #fff;
+      --shadow: 0 4px 20px rgba(30,57,147,0.08);
+    }
+
+    html {scroll-behavior:smooth;}
+    body {
+      background: var(--gray-light);
+      font-family: 'Inter', Arial, sans-serif; 
+      color: var(--dark); margin:0;
+    }
+    a {text-decoration: none; color: inherit;}
+
+    /* HEADER */
+    .header-wrap {
+      background: var(--light);
+      border-bottom:1px solid #e4e8ef;
+      width:100%;
+      box-shadow: 0 2px 10px rgba(30,57,147,0.02);
+      z-index:100;
+    }
+    .header-inner {
+      max-width:1200px; margin:0 auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:20px 28px 10px 28px; position:relative; flex-wrap:wrap;
+    }
+    .logo {
+      font-size:2.2rem;
+      color:var(--primary);
+      font-weight:800;
+      letter-spacing:.01em;
+      white-space:nowrap;
+    }
+    .header-nav-group {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+    .nav-links {
+      display:flex;align-items:center;gap:24px;font-size:1.16rem;font-weight:500;
+    }
+    .nav-links a {color:#273060;border-radius:8px;padding:8px 12px;transition:background .13s;}
+    .nav-links a.active {background: #e7edf9; color:var(--primary); font-weight:700;}
+    .nav-links a:hover:not(.active) {background:#f7faff;color:#174bf2;}
+
+    .cta-btn {
+      background: var(--secondary);
+      color:#fff;
+      border:none;
+      padding:12px 38px;
+      border-radius:7px;
+      font-weight:700;
+      font-size:1.08rem;
+      cursor:pointer;
+      box-shadow:none;
+      transition:background 0.23s;
+      display:block;text-align:center;white-space:nowrap;letter-spacing:.02em;
+    }
+    .cta-btn:hover, .cta-btn:focus {background:var(--primary);}
+    
+    @media (max-width:950px) {
+      .header-inner{flex-direction:column;align-items:stretch;padding-bottom:12px;}
+      .logo{margin-bottom:4px;}
+      .header-nav-group {flex-direction:column;align-items:stretch;gap:0;width:100%;}
+      .nav-links{gap:8px;margin-top:8px;width:100%;flex-wrap:wrap;}
+      .cta-btn{margin-left:0;margin-top:14px;width:100%;}
+    }
+    @media (max-width:530px){
+      .logo{font-size:1.24rem;}
+      .header-inner{padding:13px 6vw 7px 6vw;}
+      .nav-links{font-size:0.97em;}
+      .cta-btn{font-size:0.97rem;}
+      .nav-links a{padding:7px 7px;}
+    }
+
+    /* PAGE TITLE */
+    .solutions-title {
+      text-align:center;
+      color:var(--primary);
+      font-size:2.2rem;
+      font-weight:800;
+      margin:54px auto 26px auto;
+      letter-spacing:.01em;
+    }
+
+    /* SECTION STYLES (unchanged – same as your version) */
+    .section {
+      display:flex;
+      align-items:stretch;
+      max-width:1090px;
+      margin:38px auto 0 auto;
+      background:var(--light);
+      border-radius:19px;
+      box-shadow: var(--shadow); 
+      border:1.2px solid #e9eff8;
+      overflow:hidden;
+      min-height:350px;
+      transition:box-shadow 0.27s;
+    }
+    .section:hover {box-shadow: 0 7px 32px rgba(30,57,147,0.13);}
+    .section-content, .section-image {
+      flex:1 1 50%; min-width:240px;
+      display:flex; flex-direction:column; justify-content:center;
+    }
+    .section-content {padding:48px 38px 48px 56px;}
+    .section-image {
+      background:#e9f2fd; 
+      align-items:center; justify-content:center;
+      padding:40px 15px;
+      border-left:1.4px solid #ecf2fc;
+    }
+    .section-image-inner {
+      width:100%;display:flex;flex-direction:column;align-items:center;gap:18px; 
+    }
+    .section-image img {
+      border-radius:17px;
+      box-shadow: 0 4px 22px rgba(30,57,147,0.06);
+      width:97%;max-width:430px;max-height:250px;min-height:110px;
+      object-fit:cover;
+    }
+    .img-row {display:flex;gap:12px;justify-content:center;margin-top:13px;}
+    .img-row img {
+      width:47%;max-width:195px;min-width:110px;height:95px;object-fit:cover;border-radius:11px;box-shadow:0 1px 7px #eaecfa;
+    }
+    .section.reverse {flex-direction:row-reverse;}
+    .section.reverse .section-image { border-left:none; border-right:1.4px solid #ecf2fc; }
+    @media (max-width:800px){
+      .section,.section.reverse {flex-direction:column;min-height:auto;}
+      .section-content {padding:22px 15px 12px 15px;}
+      .section-image, .section.reverse .section-image {padding:23px 9px; border-left:0;border-right:0;border-top:1.4px solid #e2ebfa;}
+      .solutions-title{font-size:1.44rem;}
+    }
+    .section-label {text-transform:uppercase;font-size:0.97rem;color:var(--secondary);letter-spacing:.07em;margin-bottom:5px;font-weight:700;}
+    .section-title {color:var(--primary);font-size:1.7rem;margin:0 0 17px 0;font-weight:800;}
+    .section-desc {font-size:1.14rem;color:#293054;margin-bottom:17px;font-weight:500;line-height:1.56;}
+    .key-feat-title {margin-top:14px;color:#1e3993;font-weight:700;letter-spacing:.01em;font-size:1.07em;margin-bottom:4px;}
+    .feature-list {margin:0 0 12px 0; padding-left:18px; color: #1e3993; font-size:1.08rem;}
+    .feature-list li{margin-bottom:7px;}
+    .benefits-label {margin-bottom:5px;color:#019fa3;font-size:1.09em;font-weight:600;}
+    .benefit-boxes {display:flex;flex-wrap:wrap;gap:13px;margin-top:3px;}
+    .benefit-box {
+      background:#e6f3ff;color:#184685;border-radius:7px;font-size:1em;padding:10px 21px;min-width:120px;flex:0 1 47%;
+      margin-bottom:7px;font-weight:500;box-shadow:0 1.5px 8px #f0f4fa;text-align:center;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#1b2252;
+      color:#e7edfa;
+      padding:34px 10px 17px 10px;
+      margin-top:58px;
+      font-weight:500;
+      box-shadow:0 -2px 16px #dce9fa1a;
+    }
+    .footer-container{display:flex;flex-wrap:wrap;justify-content:space-between;gap:35px;max-width:1200px;margin:0 auto;}
+    .footer-col{flex:1 1 200px;min-width:180px;margin-bottom:24px;}
+    .footer-col h4{margin-bottom:12px;color:var(--secondary);font-weight:800;}
+    .footer-col ul{list-style:none;padding:0;font-size:1.03rem;color:#c6d9f5;}
+    .footer-col ul li{margin-bottom:8px;}
+    .footer-col ul li a{color:inherit;text-decoration:underline;transition:color 0.3s;}
+    .footer-col ul li a:hover{color:var(--light);}
+    .newsletter{display:flex;flex-direction:column;gap:10px;}
+    .newsletter input[type="email"]{padding:8px;border-radius:5px;border:none;font-size:1rem;}
+    .newsletter button{
+      padding:8px 0;background:var(--secondary);color:white;border:none;border-radius:5px;font-weight:600;cursor:pointer;font-size:1rem;
+      transition:background 0.3s;
+    }
+    .newsletter button:hover{background:var(--primary);}
+    @media (max-width:700px){.footer-container{flex-direction:column;gap:17px;}}
+  </style>
+</head>
+<body>
+<!-- HEADER -->
+<div class="header-wrap">
+  <div class="header-inner">
+    <div class="logo">ESIM CAMPUS</div>
+    <div class="header-nav-group">
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="#" class="active">Campus Solutions</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="#">Services</a>
+        <a href="#">Who We Serve</a>
+        <a href="#">Resources</a>
+        <a href="#">Contact</a>
+      </nav>
+      <button class="cta-btn">Get Started</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE TITLE -->
+<div class="solutions-title">ESIM CAMPUS SOLUTIONS</div>
+
+<!-- LIBRARY MANAGEMENT SYSTEM -->
+<section class="section" id="library">
+  <div class="section-content">
+    <div class="section-label">Module</div>
+    <div class="section-title">Library Management System</div>
+    <div class="section-desc">
+      <b>ESIM Campus Library Solution</b> transforms your institution's library with a seamless, all-in-one digital management platform.
+    </div>
+    <div class="key-feat-title">Key Features:</div>
+    <ul class="feature-list">
+      <li>Acquisition &amp; Cataloguing</li>
+      <li>Advanced Search &amp; Reservation</li>
+      <li>Online / Offline Lending &amp; Returns</li>
+      <li>Inventory and Stock Management</li>
+      <li>Patron &amp; Fine Management</li>
+      <li>Digital Content &amp; Cloud Repository</li>
+    </ul>
+    <div class="benefits-label">Benefits</div>
+    <div class="benefit-boxes">
+      <div class="benefit-box">Automated Workflow</div>
+      <div class="benefit-box">Full Visibility</div>
+      <div class="benefit-box">Cost Reduction</div>
+      <div class="benefit-box">Anywhere Access</div>
+      <div class="benefit-box">Database Maintenance</div>
+      <div class="benefit-box">Supports Innovation</div>
+    </div>
+  </div>
+  <div class="section-image">
+    <div class="section-image-inner">
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Modern Library" />
+      <div class="img-row">
+        <img src="libtech.jpg" alt="Library Technology" />
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Digital Catalog" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HRMS SECTION -->
+<section class="section reverse" id="hrms" style="margin-top:40px;">
+  <div class="section-content">
+    <div class="section-label">Module</div>
+    <div class="section-title">Human Resource Management System</div>
+    <div class="section-desc">
+      <b>ESIM Campus HRMS</b> automates your institution’s entire HR lifecycle.
+    </div>
+    <div class="key-feat-title">Key Features:</div>
+    <ul class="feature-list">
+      <li>Recruitment &amp; Onboarding</li>
+      <li>Payroll &amp; Pension Management</li>
+      <li>Attendance &amp; Leave Automation</li>
+      <li>Appraisal, Training &amp; Compliance</li>
+      <li>Tax Calculation</li>
+      <li>Employee Self-Service Portal</li>
+      <li>BI Dashboards &amp; Analytics</li>
+    </ul>
+    <div class="benefits-label">Benefits</div>
+    <div class="benefit-boxes">
+      <div class="benefit-box">Aligns to Business Goals</div>
+      <div class="benefit-box">Secure Mobile Access</div>
+      <div class="benefit-box">Paperless Productivity</div>
+      <div class="benefit-box">Decision Support</div>
+      <div class="benefit-box">Central Employee Hub</div>
+      <div class="benefit-box">Boosted Efficiency</div>
+    </div>
+  </div>
+  <div class="section-image">
+    <div class="section-image-inner">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="HR Team Meeting" />
+      <div class="img-row">
+        <img src="https://images.unsplash.com/photo-1424746219973-8fe3bd07d8e3?auto=format&fit=crop&w=400&q=80" alt="HR Dashboard" />
+        <img src="attend.jpg" alt="Attendance" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container container">
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <ul>
+        <li>605 STPI, A-1/4 UPSIDC, Lakhanpur, Kanpur, U.P. 208024 INDIA</li>
+        <li>C-201 Noida One IT Park, Tower-C, Sector-62, Noida-201309 UP, INDIA</li>
+        <li>Email: <a href="mailto:contact@mktsoftwares.com">contact@mktsoftwares.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Newsletter</h4>
+      <form class="newsletter">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </div>
+  <div style="text-align:center; padding-top:15px;">&copy; 2016 - MKT SOFTWARES | ALL RIGHTS RESERVED</div>
+</footer>
+</body>
+</html>
